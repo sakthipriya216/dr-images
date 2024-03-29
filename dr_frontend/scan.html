@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css.css">
+
+
+<title>Image Upload with Scan Button</title>
+<link rel="stylesheet" href="css.css">
+
+
+<style>
+    body {
+  font-family: Arial;
+  display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+}
+.button2 {background-color: #008CBA;} 
+.main {
+  float: up;
+  width: 60%;
+  padding: 0 20px;
+  overflow: hidden;
+}
+.bottom{
+    float: up;
+  width: 60%;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+    
+    #upload-container {
+        text-align: center;
+    }
+    #image-preview {
+        max-width: 300px;
+        max-height: 300px;
+        margin-bottom: 20px;
+    }
+</style>
+
+</head>
+
+<body style="font-family:Verdana; background-image: url('bg1.jpeg');background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;">
+
+<div class="main"><h3>TO GET SCANNED</h3>
+    <p>Fill the following details and click on the scan button to view your result</p>
+    <div class="container">
+        <form action="/action_page.php">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        
+          <div id="upload-container">
+              <input type="file" id="image-upload" accept="image/*" onchange="previewImage(event)">
+              <p><button onclick="scanImage()" class="w3-button w3-blue"><b>SCAN</b></button></p>
+          </div>
+      
+      
+        </form>
+      </div>
+    </div>
+ 
+
+
+</body>
+
+
+
+<script>
+    function previewImage(event) {
+        const reader = new FileReader();
+        reader.onload = function(){
+            const imagePreview = document.getElementById('image-preview');
+            imagePreview.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+
+    function scanImage() {
+        // Add functionality for scanning the uploaded image here
+        alert("Scanning the image...");
+    }
+</script>
+
+</body>
+</html>
